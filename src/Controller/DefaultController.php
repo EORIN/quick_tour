@@ -8,14 +8,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
-    /**
-    *@Route("/hello/{name}")
-    */
-
-    public function index($name): Response
+//    /**
+//    *@Authorisation
+//    */
+//    /**
+//    *@Registration
+//     */
+    #[Route('/authorisation', name: 'authorisation')]
+    public function auth(): Response
     {
-        return $this->render('default/index.html.twig', [
-                        'name' => $name,
-                    ]);
+        return $this->render('default/auth.html.twig');
     }
+    #[Route('/registration', name: 'registration')]
+    public function reg(): Response
+    {
+        return $this->render('default/reg.html.twig');
+    }
+
 }
